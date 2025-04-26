@@ -6,6 +6,6 @@
              mc:Ignorable="d" d:DesignWidth="540" d:DesignHeight="450"
              x:Class="Android_Desktop_Monitoring.UserDefinedStackedScatterPlotView">
 
-    <avalonia:AvaPlot Name="UserDefindStackedScatterPlot" />
+    <avalonia:AvaPlot Name="UserDefinedStackedScatterPlot" />
 
 </UserControl>

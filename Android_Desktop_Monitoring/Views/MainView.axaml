@@ -52,7 +52,7 @@
 
         <Panel Grid.Row="5">
             <!--세번째 줄 -->
-            <androidPlotTest1:UserDefinedPlotView DataContext="{Binding Plot3}"/>
+			<androidPlotTest1:UserDefinedStackedScatterPlotView DataContext="{Binding Plot3}"/>
 		</Panel>
 
         <Panel Grid.Row="6">

@@ -19,7 +19,7 @@ public partial class MainViewModel : ViewModelBase
 
     public UserDefinedPlotViewModel Plot1 { get; } = new UserDefinedPlotViewModel();
     public UserDefinedPlotViewModel Plot2 { get; } = new UserDefinedPlotViewModel();
-    public UserDefinedPlotViewModel Plot3 { get; } = new UserDefinedPlotViewModel();
+    public UserDefinedStackedScatterPlotViewModel Plot3 { get; } = new UserDefinedStackedScatterPlotViewModel();
     public UserDefinedPlotViewModel Plot4 { get; } = new UserDefinedPlotViewModel();
 
     public MainViewModel()
@@ -32,7 +32,7 @@ public partial class MainViewModel : ViewModelBase
 
         Plot1.ChangeColor(ScottPlot.Colors.Green.WithAlpha(.7));
         Plot2.ChangeColor(ScottPlot.Colors.Blue.WithAlpha(.7));
-        Plot3.ChangeColor(ScottPlot.Colors.Purple.WithAlpha(.7));
+        Plot3.ChangeColor(ScottPlot.Colors.Purple.WithAlpha(.7), ScottPlot.Colors.Green.WithAlpha(.7));
         Plot4.ChangeColor(ScottPlot.Colors.Yellow.WithAlpha(.7));
 
     }

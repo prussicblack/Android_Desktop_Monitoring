@@ -29,7 +29,9 @@ public partial class UserDefinedStackedScatterPlotView : UserControl
     //private int _index = 0;
     //private SignalPlot? _signal;
 
-    ScottPlot.Color FillColor = ScottPlot.Colors.Green.WithAlpha(.7);
+    ScottPlot.Color FillColorY1 = ScottPlot.Colors.Green.WithAlpha(.7);
+    ScottPlot.Color FillColorY2 = ScottPlot.Colors.Yellow.WithAlpha(.7);
+
 
 
     public UserDefinedStackedScatterPlotView()
@@ -48,7 +50,7 @@ public partial class UserDefinedStackedScatterPlotView : UserControl
 
     private void PlotInitialze()
     {
-        ScottPlot.Plot? plt = UserDefindStackedScatterPlot.Plot;
+        ScottPlot.Plot? plt = UserDefinedStackedScatterPlot.Plot;
 
         ScottPlot.PlotStyle? style = plt.GetStyle();
 
@@ -69,6 +71,8 @@ public partial class UserDefinedStackedScatterPlotView : UserControl
 
         plt.Axes.SetLimitsX(0, _xbuffer.Length-1);
         plt.Axes.SetLimitsY(0,100);
+        
+        plt.Axes.Margins(0,0,0,0.1);
 
         plt.PlotControl.UserInputProcessor.IsEnabled = false;
 
@@ -81,9 +85,10 @@ public partial class UserDefinedStackedScatterPlotView : UserControl
             AddNewValue(_viewModel.Yvalues.Y1, _viewModel.Yvalues.Y2);
             RefreshPlot();
         }
-        else if (e.PropertyName is nameof(_viewModel.FillColor))
+        else if (e.PropertyName is nameof(_viewModel.FillColorY1))
         {
-            FillColor = _viewModel.FillColor;
+            FillColorY1 = _viewModel.FillColorY1;
+            FillColorY2 = _viewModel.FillColorY2;
         }
     }
 
@@ -110,7 +115,7 @@ public partial class UserDefinedStackedScatterPlotView : UserControl
         //if (_viewModel.XValue is null)
         //    return;
 
-        UserDefindStackedScatterPlot.Plot.Clear();
+        UserDefinedStackedScatterPlot.Plot.Clear();
         
         
         //SignalPlot은 Fill Y 기능이 없음.--;;
@@ -118,21 +123,33 @@ public partial class UserDefinedStackedScatterPlotView : UserControl
         //FillY는 ZeroFill기준으로 FillY 그래프를 사용.
         //var plot = UserDefindPlot.Plot.Add.Signal(_buffer, 1, ScottPlot.Colors.Green);
 
-        var plot1 = UserDefindStackedScatterPlot.Plot.Add.ScatterLine(_xbuffer, _y1buffer, ScottPlot.Colors.Black);
-        var plot2 = UserDefindStackedScatterPlot.Plot.Add.ScatterLine(_xbuffer, _y2buffer, ScottPlot.Colors.Black);
+        var plot1 = UserDefinedStackedScatterPlot.Plot.Add.ScatterLine(_xbuffer, _y1buffer);
+        var plot2 = UserDefinedStackedScatterPlot.Plot.Add.ScatterLine(_xbuffer, _y2buffer, ScottPlot.Colors.Black);
 
         //Set Plot Style
         plot1.LineColor = ScottPlot.Colors.Transparent;
         plot2.LineColor = ScottPlot.Colors.Transparent;
-
+        //plot1.LineColor = ScottPlot.Colors.Black;
+        //plot2.LineColor = ScottPlot.Colors.Black;
+        
         plot1.LineWidth = Single.MinValue;
         plot2.LineWidth = Single.MinValue;
 
-        plot1.FillYColor = ScottPlot.Colors.Yellow.WithAlpha(.7);
-        plot2.FillYColor = ScottPlot.Colors.Green.WithAlpha(.7);
+        //plot1.LineWidth = 2;
+        //plot2.LineWidth = 2;
+
+        plot1.FillY = true;
+        plot2.FillY = true;
 
 
-        UserDefindStackedScatterPlot.Refresh();
+        //plot1.FillYColor = ScottPlot.Colors.Yellow;
+        //plot2.FillYColor = ScottPlot.Colors.Green;
+        plot1.FillYColor = FillColorY1;
+        plot2.FillYColor = FillColorY2;
+
+        
+        
+        UserDefinedStackedScatterPlot.Refresh();
 
 
     }

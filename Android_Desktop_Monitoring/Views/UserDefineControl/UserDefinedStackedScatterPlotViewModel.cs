@@ -10,8 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Android_Desktop_Monitoring.ViewModels;
-using static Android_Desktop_Monitoring.ViewModels.UserDefinedStackedScatterPlotViewModel;
 using ScottPlot.TickGenerators.TimeUnits;
+using Newtonsoft.Json.Linq;
 
 namespace Android_Desktop_Monitoring.ViewModels
 {
@@ -40,20 +40,36 @@ namespace Android_Desktop_Monitoring.ViewModels
         static readonly TimeSpan TIMESPAN_FREQUENT = TimeSpan.FromMilliseconds(500);
 
         
-        private ScottPlot.Color _FillColor = ScottPlot.Colors.Green.WithAlpha(.7);
+        private ScottPlot.Color _FillColorY1 = ScottPlot.Colors.Green.WithAlpha(.7);
 
-        public ScottPlot.Color FillColor
+        public ScottPlot.Color FillColorY1
         {
-            get => _FillColor;
+            get => _FillColorY1;
             set
             {
                 //if (_FillColor != value)
                 //{
-                    _FillColor = value;
-                    OnPropertyChanged(nameof(FillColor));
+                    _FillColorY1 = value;
+                    //OnPropertyChanged(nameof(FillColorY1));
                 //}
             }
         }
+
+        private ScottPlot.Color _FillColorY2 = ScottPlot.Colors.Yellow.WithAlpha(.7);
+        public ScottPlot.Color FillColorY2
+        {
+            get => _FillColorY2;
+            set
+            {
+                //if (_FillColor != value)
+                //{
+                _FillColorY2 = value;
+                //OnPropertyChanged(nameof(FillColorY2));
+                //}
+            }
+        }
+
+
 
         static DispatcherTimer CreateTimer(TimeSpan interval, Action onTime)
         {
@@ -88,8 +104,8 @@ namespace Android_Desktop_Monitoring.ViewModels
 
             SetValues(r1, r2);
 
-            FillColor = FillColor;
-
+            //FillColor = FillColor;
+            ChangeColor(FillColorY1, FillColorY2);
             //OnPropertyChanged(nameof(XValue));
             //UpdateTimer.Start();
 
@@ -103,10 +119,12 @@ namespace Android_Desktop_Monitoring.ViewModels
 
 
 
-        public void ChangeColor(ScottPlot.Color PlotColor)
+        public void ChangeColor(ScottPlot.Color PlotColorY1, ScottPlot.Color PlotColorY2)
         {
 
-            FillColor = PlotColor;
+            FillColorY1 = PlotColorY1;
+            FillColorY2 = PlotColorY2;
+            OnPropertyChanged(nameof(FillColorY1));
         }
 
 
@@ -124,6 +142,7 @@ namespace Android_Desktop_Monitoring.ViewModels
             }
 
         }
+
 
     }
 }
