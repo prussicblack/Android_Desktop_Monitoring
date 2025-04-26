@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Android_Desktop_Monitoring;
 
 namespace Android_Desktop_Monitoring
 {
-    internal class ReceiveDataSet
+    public static  class GlobalData
     {
+
+        public static ConfigDataSet ConfigData { get; set; } = new ConfigDataSet();
     }
 }
