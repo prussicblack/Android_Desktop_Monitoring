@@ -51,8 +51,6 @@ namespace Android_Desktop_Monitoring
 
             clientSocket = new TCPClientAsync(GlobalData.ConfigData.IP, GlobalData.ConfigData.Port);
 
-            //clientSocket = new TCPClientAsync("192.168.86.28", Global.systemDef.Ros2Port);
-
             clientSocket.handler += ClientSocketHandler;
 
             clientSocket.Connect();
