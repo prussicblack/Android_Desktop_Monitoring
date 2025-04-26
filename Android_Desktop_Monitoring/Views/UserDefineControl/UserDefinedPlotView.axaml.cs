@@ -124,8 +124,6 @@ public partial class UserDefinedPlotView : UserControl
         plot.LineColor = ScottPlot.Colors.Transparent;
         //plot.FillColor = ScottPlot.Colors.Green.WithAlpha(.7);
         plot.FillColor = FillColor;
-
-        plot.FillStyle
         //plot.LineStyle.
 
         UserDefindPlot.Refresh();

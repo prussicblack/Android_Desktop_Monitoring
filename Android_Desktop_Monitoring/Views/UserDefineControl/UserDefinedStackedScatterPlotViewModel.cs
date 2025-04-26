@@ -10,31 +10,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Android_Desktop_Monitoring.ViewModels;
+using static Android_Desktop_Monitoring.ViewModels.UserDefinedStackedScatterPlotViewModel;
+using ScottPlot.TickGenerators.TimeUnits;
 
 namespace Android_Desktop_Monitoring.ViewModels
 {
     public partial class UserDefinedStackedScatterPlotViewModel : ViewModelBase
     {
-        //[ObservableProperty]
-        //private IList<double>? xValues = new List<double>(); //사용은 XValues가 됨.
-        //private ObservableCollection<double> xValues = new ObservableCollection<double>();
-        //public ObservableCollection<double>? XValues = new ObservableCollection<double>();
+        private yvalues _Yvalues;
 
-        private double _XValue = 0;
-
-        public double XValue
+        public yvalues Yvalues
         {
-            get => _XValue;
+            get => _Yvalues;
             set
             {
-
-                //if (_XValue != value)
-                //{
-                    _XValue = value;
-                    OnPropertyChanged(nameof(XValue));
-                //}
+                if (_Yvalues.Y1 != value.Y1 || _Yvalues.Y2 != value.Y2)
+                {
+                    _Yvalues = value;
+                    OnPropertyChanged(nameof(Yvalues));
+                }
             }
+
         }
+
+
 
         private DispatcherTimer UpdateTimer;
         static readonly TimeSpan TIMESPAN_NORMAL = TimeSpan.FromSeconds(1);
@@ -84,9 +83,10 @@ namespace Android_Desktop_Monitoring.ViewModels
             //UpdateTimer.Stop();
             Random rand = new Random();
 
-            int r = rand.Next(0, 100);
+            int r1 = rand.Next(0, 100);
+            int r2 = rand.Next(0, 100);
 
-            XValue = r;
+            SetValues(r1, r2);
 
             FillColor = FillColor;
 
@@ -96,6 +96,13 @@ namespace Android_Desktop_Monitoring.ViewModels
 
         }
 
+        public void SetValues(double y1, double y2)
+        {
+            Yvalues = new yvalues(y1, y2); // ← 이러면 둘 다 세팅되면서
+        }
+
+
+
         public void ChangeColor(ScottPlot.Color PlotColor)
         {
 
@@ -103,6 +110,20 @@ namespace Android_Desktop_Monitoring.ViewModels
         }
 
 
+
+
+        public struct yvalues
+        {
+            public double Y1 { get; set; }
+            public double Y2 { get; set; }
+
+            public yvalues(double y1, double y2)
+            {
+                Y1 = y1;
+                Y2 = y2;
+            }
+
+        }
 
     }
 }
