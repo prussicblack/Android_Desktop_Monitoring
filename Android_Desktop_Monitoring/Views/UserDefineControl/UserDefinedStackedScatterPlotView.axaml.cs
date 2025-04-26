@@ -17,7 +17,7 @@ using Colors = Avalonia.Media.Colors;
 
 namespace Android_Desktop_Monitoring;
 
-public partial class UserDefinedPlotView : UserControl
+public partial class UserDefinedStackedScatterPlotView : UserControl
 {
     private UserDefinedPlotViewModel? _viewModel;
 
@@ -32,7 +32,7 @@ public partial class UserDefinedPlotView : UserControl
     ScottPlot.Color FillColor = ScottPlot.Colors.Green.WithAlpha(.7);
 
 
-    public UserDefinedPlotView()
+    public UserDefinedStackedScatterPlotView()
     {
         InitializeComponent();
 
@@ -48,7 +48,7 @@ public partial class UserDefinedPlotView : UserControl
 
     private void PlotInitialze()
     {
-        ScottPlot.Plot? plt = UserDefindPlot.Plot;
+        ScottPlot.Plot? plt = UserDefindStackedScatterPlot.Plot;
 
         ScottPlot.PlotStyle? style = plt.GetStyle();
 
@@ -124,8 +124,6 @@ public partial class UserDefinedPlotView : UserControl
         plot.LineColor = ScottPlot.Colors.Transparent;
         //plot.FillColor = ScottPlot.Colors.Green.WithAlpha(.7);
         plot.FillColor = FillColor;
-
-        plot.FillStyle
         //plot.LineStyle.
 
         UserDefindPlot.Refresh();

@@ -21,4 +21,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ScottPlot.Avalonia" Version="5.0.55" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\UserDefineControl\UserDefinedStackedScatterPlotView.axaml.cs">
+      <DependentUpon>UserDefinedStackedScatterPlotView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
