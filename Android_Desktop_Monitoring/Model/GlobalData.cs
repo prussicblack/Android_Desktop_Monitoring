@@ -9,7 +9,8 @@ namespace Android_Desktop_Monitoring
 {
     public static  class GlobalData
     {
-
         public static ConfigDataSet ConfigData { get; set; } = new ConfigDataSet();
+        public static ReceiveDataSet ReceiveData { get; set; } = new ReceiveDataSet();
+
     }
 }

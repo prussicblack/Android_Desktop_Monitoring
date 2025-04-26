@@ -19,7 +19,7 @@ namespace Android_Desktop_Monitoring
     public static class ConfigDataSetControl
     {
         public static string SystemDir = System.AppDomain.CurrentDomain.BaseDirectory;
-        public static string SystemFile = SystemDir + System.IO.Path.DirectorySeparatorChar + "AMRGlobalData.json";
+        public static string SystemFile = SystemDir + System.IO.Path.DirectorySeparatorChar + "GlobalData.json";
 
 
         public static ConfigDataSet LoadData()
@@ -36,8 +36,6 @@ namespace Android_Desktop_Monitoring
             }
             catch
             {
-                //MessageBox.Show("AMRGlobalData.json File Nothing");
-                //return null;
                 return GlobalData.ConfigData;
             }
         }
