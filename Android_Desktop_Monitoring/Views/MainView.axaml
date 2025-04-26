@@ -8,6 +8,7 @@
              xmlns:androidPlotTest1="clr-namespace:Android_Desktop_Monitoring"
              mc:Ignorable="d" d:DesignWidth="540" d:DesignHeight="1200"
              x:Class="Android_Desktop_Monitoring.Views.MainView"
+             Background="Black"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
     <!-- This only sets the DataContext for the previewer in an IDE,
@@ -27,7 +28,7 @@
         </Grid.RowDefinitions>
 
 		<Panel Grid.Row="0">
-			<Label  Foreground="#000000" Content="Plot1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+			<Label  Foreground="#FFFFFF" Content="Plot1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 		</Panel>
 
         <Panel Grid.Row="1">
@@ -35,7 +36,7 @@
 		</Panel>
 
         <Panel Grid.Row="2">
-            <Label  Foreground="#000000" Content="Plot2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label  Foreground="#FFFFFF" Content="Plot2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
 		</Panel>
 
@@ -45,7 +46,7 @@
 		</Panel>
 
         <Panel Grid.Row="4">
-            <Label  Foreground="#000000" Content="Plot3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label  Foreground="#FFFFFF" Content="Plot3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
 		</Panel>
 
@@ -55,7 +56,7 @@
 		</Panel>
 
         <Panel Grid.Row="6">
-            <Label  Foreground="#000000" Content="Plot4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label  Foreground="#FFFFFF" Content="Plot4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
 		</Panel>
 

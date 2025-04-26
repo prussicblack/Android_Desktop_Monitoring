@@ -28,11 +28,11 @@ namespace Android_Desktop_Monitoring.ViewModels
             set
             {
 
-                if (_XValue != value)
-                {
+                //if (_XValue != value)
+                //{
                     _XValue = value;
                     OnPropertyChanged(nameof(XValue));
-                }
+                //}
             }
         }
 
@@ -64,10 +64,10 @@ namespace Android_Desktop_Monitoring.ViewModels
             return timer;
         }
 
-        public UserDefinedPlotViewModel(ScottPlot.Color fillColor)
+        public UserDefinedPlotViewModel()
         {
             InitAlarmUpdateTimer();
-            FillColor = fillColor;
+            //FillColor = fillColor;
         }
 
 
@@ -95,6 +95,13 @@ namespace Android_Desktop_Monitoring.ViewModels
 
 
         }
+
+        public void ChangeColor(ScottPlot.Color PlotColor)
+        {
+
+            FillColor = PlotColor;
+        }
+
 
 
     }

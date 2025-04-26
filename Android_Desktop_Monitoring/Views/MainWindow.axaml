@@ -7,6 +7,7 @@
         mc:Ignorable="d" d:DesignWidth="540" d:DesignHeight="1200"
         x:Class="Android_Desktop_Monitoring.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Android_Desktop_Monitoring">
+        Title="Android_Desktop_Monitoring"
+        Background="Black">
         <views:MainView />
 </Window>

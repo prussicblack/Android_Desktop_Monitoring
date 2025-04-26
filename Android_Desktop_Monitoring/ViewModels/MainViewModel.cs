@@ -17,10 +17,10 @@ public partial class MainViewModel : ViewModelBase
 
     public IRelayCommand<string?> CMD_TestBTN { get; }
 
-    public UserDefinedPlotViewModel Plot1 { get; } = new UserDefinedPlotViewModel(ScottPlot.Colors.Green.WithAlpha(.7));
-    public UserDefinedPlotViewModel Plot2 { get; } = new UserDefinedPlotViewModel(ScottPlot.Colors.Blue.WithAlpha(.7));
-    public UserDefinedPlotViewModel Plot3 { get; } = new UserDefinedPlotViewModel(ScottPlot.Colors.Purple.WithAlpha(.7));
-    public UserDefinedPlotViewModel Plot4 { get; } = new UserDefinedPlotViewModel(ScottPlot.Colors.Yellow.WithAlpha(.7));
+    public UserDefinedPlotViewModel Plot1 { get; } = new UserDefinedPlotViewModel();
+    public UserDefinedPlotViewModel Plot2 { get; } = new UserDefinedPlotViewModel();
+    public UserDefinedPlotViewModel Plot3 { get; } = new UserDefinedPlotViewModel();
+    public UserDefinedPlotViewModel Plot4 { get; } = new UserDefinedPlotViewModel();
 
     public MainViewModel()
     {
@@ -29,6 +29,12 @@ public partial class MainViewModel : ViewModelBase
         //CMD_TestBTN = new RelayCommand<string?>(ExecuteCMD_TestBTNt, CanExecuteExecuteCMD_TestBTNt);
 
         //Plot1 = new UserDefinedPlotViewModel();
+
+        Plot1.ChangeColor(ScottPlot.Colors.Green.WithAlpha(.7));
+        Plot2.ChangeColor(ScottPlot.Colors.Blue.WithAlpha(.7));
+        Plot3.ChangeColor(ScottPlot.Colors.Purple.WithAlpha(.7));
+        Plot4.ChangeColor(ScottPlot.Colors.Yellow.WithAlpha(.7));
+
     }
 
 
