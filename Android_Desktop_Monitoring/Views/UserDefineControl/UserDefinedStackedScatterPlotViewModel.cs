@@ -15,7 +15,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Android_Desktop_Monitoring.ViewModels
 {
-    public partial class UserDefinedStackedScatterPlotViewModel : ViewModelBase
+    public partial class UserDefinedStackedScatterPlotViewModel : ObservableObject
     {
         private yvalues _Yvalues;
 

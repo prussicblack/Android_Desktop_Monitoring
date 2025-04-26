@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Android_Desktop_Monitoring.ViewModels;
 
-public partial class MainViewModel : ViewModelBase
+public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty]
     private IList<double>? xValues;

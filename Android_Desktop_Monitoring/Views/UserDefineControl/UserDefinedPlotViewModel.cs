@@ -13,7 +13,7 @@ using Android_Desktop_Monitoring.ViewModels;
 
 namespace Android_Desktop_Monitoring.ViewModels
 {
-    public partial class UserDefinedPlotViewModel : ViewModelBase
+    public partial class UserDefinedPlotViewModel : ObservableObject
     {
         //[ObservableProperty]
         //private IList<double>? xValues = new List<double>(); //사용은 XValues가 됨.
