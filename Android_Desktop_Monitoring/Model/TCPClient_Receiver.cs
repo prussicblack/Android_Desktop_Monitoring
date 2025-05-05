@@ -62,7 +62,10 @@ namespace Android_Desktop_Monitoring
 
         private void StartTimeSetTimer()
         {
-            _timeSetTimer.Start();
+            if (_timeSetTimer.Enabled == false)
+            {
+                _timeSetTimer.Start();
+            }
         }
 
         private void EndTimeSetTimer()

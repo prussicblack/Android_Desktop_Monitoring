@@ -22,6 +22,13 @@ public partial class MainViewModel : ObservableObject
     public UserDefinedStackedScatterPlotViewModel Plot3 { get; } = new UserDefinedStackedScatterPlotViewModel();
     public UserDefinedPlotViewModel Plot4 { get; } = new UserDefinedPlotViewModel();
 
+    public string LbPlot1 { get; set; } = "Plot1";
+    public string LbPlot2 { get; set; } = "Plot2";
+    public string LbPlot3 { get; set; } = "Plot3";
+    public string LbPlot4 { get; set; } = "Plot4";
+
+    public TCPClient_Receiver client = null;
+
     public MainViewModel()
     {
         // 마찬가지 Avalonia 방식으로 변경.
@@ -35,9 +42,20 @@ public partial class MainViewModel : ObservableObject
         Plot3.ChangeColor(ScottPlot.Colors.Purple.WithAlpha(.7), ScottPlot.Colors.Green.WithAlpha(.7));
         Plot4.ChangeColor(ScottPlot.Colors.Yellow.WithAlpha(.7));
 
+
+
+        LbPlot1 = "CPU";
+        LbPlot2 = "RAM";
+        LbPlot3 = "NetWork";
+        LbPlot4 = "GPU";
+
+        //Device 초기화 및 생성.
+        client = new TCPClient_Receiver();
+        client.InitConnect();
     }
 
-
+    //나중에 알람 관련 내용 추가할것..
+    //소켓 연결 끊김 등의 내용이 들어가야 함.
 
 
     private void ExecuteCMD_TestBTNt(string? name)
